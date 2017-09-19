@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Description="SharePoint Add-in Feature" Id="8cd1b023-14cc-4bac-a7a6-f453fdbd96e0" Scope="Web" Title="Hyperlinks Feature1" Version="1.0.0.2">
+  <ElementManifests>
+    <ElementManifest Location="Pages\Elements.xml" />
+    <ElementFile Location="Pages\Default.aspx" />
+    <ElementFile Location="Pages\Hyperlinks.aspx" />
+    <ElementManifest Location="Images\Elements.xml" />
+    <ElementFile Location="Images\AppIcon.png" />
+    <ElementManifest Location="Elements.xml" />
+    <ElementFile Location="dist\app.4e0f3fd2325bfbd4605c.css" />
+    <ElementFile Location="dist\app.4e0f3fd2325bfbd4605c.css.map" />
+    <ElementFile Location="dist\app.4e0f3fd2325bfbd4605c.js" />
+    <ElementFile Location="dist\index.html" />
+    <ElementFile Location="dist\polyfills.4e0f3fd2325bfbd4605c.js" />
+    <ElementFile Location="dist\vendor.4e0f3fd2325bfbd4605c.js" />
+  </ElementManifests>
+  <UpgradeActions>
+    <VersionRange>
+      <ApplyElementManifests>
+        <ElementManifest Location="Pages\Elements.xml" />
+        <ElementManifest Location="Images\Elements.xml" />
+        <ElementManifest Location="Elements.xml" />
+      </ApplyElementManifests>
+    </VersionRange>
+  </UpgradeActions>
+</Feature>
