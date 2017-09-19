@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Description="SharePoint Add-in Feature" Id="019d9d0b-09d0-4405-98a7-cc640e7687e2" Scope="Web" Title="Ang2WebpackTheCompleteGuide Feature1" Version="1.0.0.0">
+  <ElementManifests>
+    <ElementManifest Location="Pages\Elements.xml" />
+    <ElementFile Location="Pages\Default.aspx" />
+    <ElementManifest Location="Images\Elements.xml" />
+    <ElementFile Location="Images\AppIcon.png" />
+    <ElementManifest Location="Elements.xml" />
+    <ElementFile Location="dist\app.css" />
+    <ElementFile Location="dist\app.js" />
+    <ElementFile Location="dist\index.html" />
+    <ElementFile Location="dist\polyfills.js" />
+    <ElementFile Location="dist\vendor.js" />
+    <ElementFile Location="config\helpers.js" />
+    <ElementFile Location="config\karma-test-shim.js" />
+    <ElementFile Location="config\karma.conf.js" />
+    <ElementFile Location="config\webpack.common.js" />
+    <ElementFile Location="config\webpack.dev.js" />
+    <ElementFile Location="config\webpack.prod.js" />
+    <ElementFile Location="config\webpack.test.js" />
+    <ElementFile Location="src\index.html" />
+    <ElementFile Location="src\styles.css" />
+    <ElementFile Location="src\app\app.component.css" />
+    <ElementFile Location="src\app\app.component.html" />
+    <ElementFile Location="src\app\databinding\databinding.component.css" />
+    <ElementFile Location="src\app\databinding\databinding.component.html" />
+    <ElementFile Location="src\assets\css\styles.css" />
+    <ElementFile Location="src\assets\images\angular.png" />
+  </ElementManifests>
+  <UpgradeActions>
+    <VersionRange>
+      <ApplyElementManifests>
+        <ElementManifest Location="Pages\Elements.xml" />
+        <ElementManifest Location="Images\Elements.xml" />
+        <ElementManifest Location="Elements.xml" />
+      </ApplyElementManifests>
+    </VersionRange>
+  </UpgradeActions>
+</Feature>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="aaf38100-8946-475e-aa2d-9e619ec9e4aa" SharePointProductVersion="16.0">
+  <FeatureManifests>
+    <FeatureManifest Location="Ang2ReactiveFormsWebpackPreboot_Feature1\Feature.xml" />
+  </FeatureManifests>
+</Solution>

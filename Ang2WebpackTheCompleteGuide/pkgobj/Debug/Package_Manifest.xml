@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="cd3827b9-1659-400a-bccb-8a5aabc2aca3" SharePointProductVersion="16.0">
+  <FeatureManifests>
+    <FeatureManifest Location="Ang2WebpackTheCompleteGuide_Feature1\Feature.xml" />
+  </FeatureManifests>
+</Solution>

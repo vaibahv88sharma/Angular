@@ -1,0 +1,22 @@
+<!--      <ul class="nav nav-tabs">
+      <li *ngFor="let tab of tabs" (click)="selectTab(tab)" class="nav-item" [class.active]="tab.active">
+        {{tab.title}}
+      </li>
+    </ul>
+    <ng-content></ng-content> --> 
+
+
+    <div class="row">
+      <ng-content></ng-content>
+    </div>
+
+    
+    
+    <div class="row">
+      <ul class="nav nav-tabs flex-wrap">
+        <li *ngFor="let tab of tabs"  class="nav-item" [class.active]="tab.active">
+          <a href="javascript:void(0)" (click)="selectTab(tab)" class="nav-link"> {{tab.title}} </a>
+        </li>
+      </ul>      
+    </div>
+    

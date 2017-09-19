@@ -1,0 +1,272 @@
+<!--  <div class="container"> --> 
+
+  <div class="card">
+  <div class="card-header">
+    Company Registeration
+  </div>
+  <div class="card-body"> 
+      
+      <!-- {{this.formValidation | json}} -->
+     <!-- {{getShareHoldersArray.get('0.sharesNo')?.value}}
+     {{shareHoldersArray.get('0.sharesNo')?.value}}   -->    
+
+    <form 
+        novalidate autocomplete="off"
+          (ngSubmit)="save()"
+          [formGroup]="crForm">
+
+              <fieldset>
+                    <div formGroupName="nameGroup"> 
+                        <div class="form-group row">
+                            <label class="col-md-4 col-lg-4 col-form-label" 
+                                [ngClass]="{'invalid-feedback': cr.name1 }"
+                                for="name1Id">First Name</label>
+                            <div class="col-md-8 col-lg-8">
+                                <input class="form-control" 
+                                    [ngClass]="{'is-invalid': cr.name1 }"
+                                    id="name1Id" 
+                                    type="text" 
+                                    placeholder="Name (required)"
+                                    formControlName="name1"/>
+
+                                <span class="form-text" *ngIf="cr.name1"
+                                    [ngClass]="{'invalid-feedback': cr.name1 }">
+                                    {{cr.name1}}
+                                </span>
+                            </div>
+                        </div>                                               
+                          <div class="form-group row">
+                            <label class="col-md-4 col-lg-4 col-form-label" 
+                                [ngClass]="{'invalid-feedback': cr.name2 }"
+                                for="name2Id">Second Name</label>
+                            <div class="col-md-8 col-lg-8">
+                                <input class="form-control" 
+                                    [ngClass]="{'is-invalid': cr.name2 }"
+                                    id="name2Id" 
+                                    type="text" 
+                                    placeholder="Name (required)"
+                                    formControlName="name2"/>
+                                <span class="form-text" *ngIf="cr.name2"
+                                    [ngClass]="{'invalid-feedback': cr.name2 }">
+                                    {{cr.name2}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-4 col-lg-4 col-form-label" 
+                            [ngClass]="{'invalid-feedback': cr.commencementDate }"
+                            for="commencementDateId">Date</label>
+                        <div class="col-md-8 col-lg-8">
+                            <input class="form-control" 
+                                [ngClass]="{'is-invalid': cr.commencementDate }"
+                                id="commencementDateId" 
+                                type="date" 
+                                placeholder="Date (required)"
+                                formControlName="commencementDate"/>
+                            <span class="form-text" *ngIf="cr.commencementDate"
+                                [ngClass]="{'invalid-feedback': cr.commencementDate }">
+                                {{cr.commencementDate}}
+<!--                                 <span *ngIf="crForm.get('commencementDate').errors.greaterThanToday">
+                                    The first name must be longer than 2 character.
+                                </span> -->
+                            </span>
+                        </div>
+                    </div> 
+
+                    <div class="form-group row">
+                      <label class="col-md-4 col-lg-4 col-form-label">Type of Company</label>  
+                      <div class="col-md-8 col-lg-8">
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" value="public" 
+                                formControlName = "companyType"> Public
+                                <!-- (click) = "setNotification('public')"> Public -->
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" value="proprietory" 
+                                formControlName = "companyType"> Proprietory
+                                <!-- (click) = "setNotification('proprietory')"> Proprietory -->
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-4 col-lg-4 col-form-label">Nature of Liability i.e. Ltd by Shares or Guarantee</label>  
+                      <div class="col-md-8 col-lg-8">
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" value="shares" 
+                                formControlName = "liability"> Shares
+                                <!-- (click) = "setNotification('public')"> Public -->
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" value="guarantee" 
+                                formControlName = "liability"> Guarantee
+                                <!-- (click) = "setNotification('proprietory')"> Proprietory -->
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                    <div formArrayName="directorInfoGroupArray" *ngFor="let shareHolder of getDirectorArray.controls; let i=index"  class="card text-white bg-secondary mt-2">                  
+                        <div class="card-header">
+                            <span>Director {{i+1}}</span>
+                            <button type="button" name="rmDirector" id="rmDirector" class="btn btn-danger float-right"
+                                *ngIf="getDirectorArray.controls.length > 1" (click)="removeDirector(i)">
+                                <i class="fa fa-window-close" aria-hidden="true" ></i> 
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div [formGroupName]="i">
+                                <!-- {{getDirectorArray}} <br> a:{{shareHolder.get('directorPositionArray')}} -->
+                                 <!-- <director-array [group]="shareHolder" [directorPositionFG]="getDirectorPosition"></director-array>  -->
+                                 <director-array [group]="shareHolder" [directorPositionFG]="shareHolder.get('directorPositionArray')"></director-array> 
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <br>
+                    <button type="button" name="" id="" class="btn btn-primary btn-sm"
+                        [disabled]="!getDirectorArray.valid" (click)="addDirector()">
+                        Add Director</button> 
+                    </div>                      
+<!--   with errors
+                    <div formGroupName="directorInfoGroup"> 
+                        <div class="form-group row">
+                            <label class="col-md-4 col-lg-4 col-form-label" 
+                                [ngClass]="{'invalid-feedback': cr.directorSurname }"
+                                for="surnameId">Surname</label>
+                            <div class="col-md-8 col-lg-8">
+                                <input class="form-control" 
+                                    [ngClass]="{'is-invalid': cr.directorSurname }"
+                                    id="surnameId" 
+                                    type="text" 
+                                    placeholder="Surname (required)"
+                                    formControlName="directorSurname"/>
+
+                                <span class="form-text" *ngIf="cr.directorSurname"
+                                    [ngClass]="{'invalid-feedback': cr.directorSurname }">
+                                    {{cr.directorSurname}}
+                                </span>
+                            </div>
+                        </div>
+                         <div class="form-group row">
+                            <label class="col-md-4 col-lg-4 col-form-label" 
+                            [ngClass]="{'invalid-feedback': cr.directorEmail }"
+                                for="directorEmailId">Director's Email</label>
+                            <div class="col-md-8 col-lg-8">
+                                <input class="form-control" 
+                                    id="directorEmailId" 
+                                    type="email" 
+                                    placeholder="Email (required)" 
+                                    formControlName="directorEmail"
+                                    [ngClass]="{'is-invalid': cr.directorEmail }" />
+                                <span class="form-text" 
+                                        *ngIf="cr.directorEmail"
+                                        [ngClass]="{'invalid-feedback': cr.directorEmail }">
+                                    {{cr.directorEmail}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-lg-4 col-form-label" for="directorPhoneId"
+                            [ngClass]="{'invalid-feedback': cr.directorPhone }"                                
+                                >Director's Phone
+                            </label>
+                            <div class="col-md-8 col-lg-8">
+                                <input class="form-control" 
+                                    id="directorPhoneId" 
+                                    type="number" 
+                                    placeholder="Director's Phone" 
+                                    formControlName = "directorPhone" 
+                                    [ngClass]="{'is-invalid': cr.directorPhone }"/>
+                                <span class="form-text" *ngIf="cr.directorPhone"
+                                    [ngClass]="{'invalid-feedback': cr.directorPhone }">
+                                    {{cr.directorPhone}}
+                                </span>
+                            </div>
+                        </div>                                                      
+                    </div> -->
+
+                    <div formArrayName="shareHoldersArray" *ngFor="let shareHolder of getShareHoldersArray.controls; let i=index">
+                        <div [formGroupName]="i"> <!-- <div formGroupName="shareHoldersGroup">  -->
+<!--                        SHOWS DYNAMIC ERROR MESSAGE, JUST LIKE ABOVE CONTROLS
+                             <div class="form-group row">
+                                <label class="col-md-4 col-lg-4 col-form-label" [ngClass]="{'invalid-feedback': cr.sharesNo }"      
+                                    attr.for="{{ 'sharesNoId-' + i }}">No of shares of each applicant</label>
+                                <div class="col-md-8 col-lg-8">
+                                    <input class="form-control" id="{{ 'sharesNoId-' + i }}" type="number" placeholder="No of shares" 
+                                    formControlName="sharesNo"
+                                    [ngClass]="{'is-invalid': cr.sharesNo }"/>
+                                    <span class="form-text" *ngIf="cr.sharesNo"
+                                        [ngClass]="{'invalid-feedback': cr.sharesNo }">
+                                        {{cr.sharesNo}}
+                                    </span>                                    
+                                </div>
+                            </div>    -->  
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label class="col-form-label"
+                                        attr.for="{{ 'sharesNoId-' + i }}">No of shares of each applicant</label>
+                                        <input class="form-control" id="{{ 'sharesNoId-' + i }}" type="number" placeholder="No of shares" formControlName="sharesNo"/>
+                                </div> 
+                                <div class="form-group col">
+                                    <label class="col-form-label"
+                                        attr.for="{{ 'shareHolderNameId-' + i }}">Name of proposed Shareholder</label>
+                                        <input class="form-control" id="{{ 'shareHolderNameId-' + i }}" type="text" placeholder="Shareholder's name" formControlName="shareHolderName"/>
+                                </div>    
+                                <div class="form-group col">
+                                    <label class="col-form-label"
+                                        attr.for="{{ 'shareHolderAddressId-' + i }}">Residential Address of Shareholder(s)</label>
+                                        <input class="form-control" id="{{ 'shareHolderAddressId-' + i }}" type="text" placeholder="Residential Address" formControlName="shareHolderAddress"/>
+                                </div>                                
+                            </div>  
+                            <hr>                                                                                         
+                        </div>
+                    </div>
+                    <button type="button" name="" id="" class="btn btn-primary btn-sm"
+                        [disabled]="!getShareHoldersArray.valid" (click)="addShareholder()">
+                        Add Shareholder</button>     
+                        <hr> 
+<!--                     <div class="row">
+                    <div class="col-12">
+                        <p class="h3">Declaration</p>
+                    </div>
+                    <div class="col-12">
+                        <p>
+                            I/we  &nbsp;&nbsp;<input type="text" formControlName = "declarationName">&nbsp; declate that information provided in this form is true and correct and I
+                            authorise A.T. Accounting Services to complete and lodge this application for incorporation of company with ASIC on my / our behalf.
+                        </p>
+                        <p>
+
+                        </p>
+                    </div>                        
+                        
+                    </div>   -->           
+                    <div class="form-group row">
+                        <div class="col-md-12 col-lg-12">
+                            <span>
+                                <button class="btn btn-primary float-right"
+                                        type="submit"
+                                        (click)="saveForm(crForm)"
+                                        [disabled]="!crForm.valid">
+                                    Save
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+
+              </fieldset>
+        </form>
+    </div> 
+</div>  
+  <!-- </div>  -->

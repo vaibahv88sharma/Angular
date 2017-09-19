@@ -1,0 +1,3 @@
+C:\Users\vsharma\Downloads\8 June\Ang2bSP\3\Ang2WebpackTheCompleteGuide\bin\Debug\Ang2WebpackTheCompleteGuide.pdb
+C:\Users\vsharma\Downloads\8 June\Ang2bSP\3\Ang2WebpackTheCompleteGuide\obj\Debug\Ang2WebpackTheCompleteGuide.dll
+C:\Users\vsharma\Downloads\8 June\Ang2bSP\3\Ang2WebpackTheCompleteGuide\obj\Debug\Ang2WebpackTheCompleteGuide.pdb

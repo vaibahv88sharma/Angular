@@ -1,0 +1,1 @@
+bin\Debug\Ang2WebpackTheCompleteGuide.wsp
