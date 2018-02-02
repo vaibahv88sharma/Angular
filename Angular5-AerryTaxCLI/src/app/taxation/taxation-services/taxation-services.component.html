@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-12">
+        <h1>{{tax.title}}</h1>
+      </div>
+      <div class="col-12">
+        <p>{{tax.pageDescription1}}</p>
+      </div>
+      <div class="col-12">
+        <blockquote class="blockquote">          
+          <p>Whether you’ve got a basic tax return with a single group certificate, or you’re at the other end of the scale
+            with rental properties and complex investments… we can help you get it sorted, fast!</p>
+        </blockquote>
+      </div>
+      <div class="col-12">
+        <p>{{tax.pageDescription2}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <!-- <div class="row"> -->
+      <div class="" style="background-color:#3498db; padding: 0.5em 0em;">
+        
+            <h1 style="color: white; text-align:center">{{tax.title}}</h1>
+            <h4 style="color: white; text-align:center">{{tax.servicesListH1}}</h4>
+        
+    </div>
+    <div style="text-align: center;">
+        <span style="font-size:2.5em;">$</span>
+        <span style="font-size:4em;">{{changedCost()}}</span>
+        <span style="font-size:2.5em;">.00</span>
+    </div>
+    <div class="">
+        <label for="chkbx{{chkbx.id}}" *ngFor="let chkbx of tax.servicesList"
+        style="display: block; font-size: 1em; text-align: left;">
+        <input type="checkbox" name="itemProvided"
+          id="chkbx{{chkbx.id}}"
+          [(ngModel)]="chkbx.selected"
+           [checked]="chkbx.selected"
+           (change)="changedCost($event, chkbx.cost)"
+            style="transform: scale(1.5);">
+        &nbsp;&nbsp;{{chkbx.title}} 
+    </label> 
+    
+    </div>
+    <div style=" display: flex; justify-content: center; margin: 20px;">
+        <button class="btn btn-success" type="submit" 
+            style=" background-color:#3498db; padding: 5px 0.5em 2px 0.5em; font-size: 2em;"
+            onclick="document.location.href='#/contact';">
+            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;Contact
+        </button>
+    </div>      
+    <!-- </div> -->
+  </div>
+</div>
+<!-- {{tax.servicesList | json}}
+<br/><br/> -->
